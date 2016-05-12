@@ -33,5 +33,9 @@ void inject_message(void *opdata, const char *accountname,
 OtrlPolicy policy(void *opdata, ConnContext *context);
 
 
+int max_message_size(void *opdata, ConnContext *context);
+void handle_msg_event(void *opdata, OtrlMessageEvent msg_event,
+                         ConnContext *context, const char *message,
+                         gcry_error_t err);
 
 #endif //CPP_SECURE_MESSENGER_PROTOCOL_H

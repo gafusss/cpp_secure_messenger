@@ -6,6 +6,7 @@ extern "C" {
 #include <thread>
 #include "User.h"
 #include <cstdio>
+#include <zconf.h>
 
 using namespace std;
 ///* Return the OTR policy for the given context. */
@@ -359,7 +360,7 @@ void thr1() {
 	OTRL_INIT;
 	User* user1 = new User("user1");
 	user1->send("user2", "Hello");
-
+	printf("---user1 done-----\n");
 /*
 	auto userstate = otrl_userstate_create();
 	printf("created userstate\n");
@@ -520,6 +521,7 @@ gcry_error_t otrl_message_sending(OtrlUserState us,
 	void *data);*/
 	Transfer::setUsers("user1", "user2");
 	thread t1(thr1);
+	sleep(1);
 	thread t2(thr2);
 
 	t1.join();
